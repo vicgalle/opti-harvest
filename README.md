@@ -244,30 +244,42 @@ With **40 pots**, keep the million-gold harvest and a **25×20 field** watered b
 
 The rectangular-plot solver maximizes the number of jars you can collect in one full harvest. Let $V$ be the plot tiles. On each tile $v$, binary variables $h_v$ and $f_v$ indicate a bee house and a mature flower. A third binary variable $w_v$ marks a tile the farmer uses to walk or stand. Each house yields one jar, so the objective is
 
-$$
+```math
 \max \sum_{v\in V} h_v .
-$$
+```
 
-Let $S$ be the starting tiles. For an open plot, $S$ is the clear ring just outside the rectangle. For a single entrance, $S=\{g\}$ contains the reserved gate tile inside the plot, with $f_g=0$. Within $V\cup S$, let $N_4(v)$ contain the tiles sharing a side with $v$, and let $N_8(v)$ also include those touching a corner. The pickup positions for a house at $v$ are $C(v)=N_8(v)$ by default or $C(v)=N_4(v)$ for side-only collection.
+Let $S$ be the starting tiles. For an open plot, $S$ is the clear ring just outside the rectangle. For a single entrance, $S=\lbrace g\rbrace$ contains the reserved gate tile inside the plot, with $f_g=0$.
 
-**Placement and flower range.** A house occupies its own tile, needs a flower within five Manhattan steps, and needs a pickup position. Write $B_5(v)=\{u\in V:0<\lVert u-v\rVert_1\le 5\}$ for its flower range. For every $v\in V$, impose
+Within $V\cup S$, let $N_4(v)$ contain the tiles sharing a side with $v$, and let $N_8(v)$ also include those touching a corner. The pickup positions for a house at $v$ are $C(v)=N_8(v)$ by default or $C(v)=N_4(v)$ for side-only collection.
 
-$$
+### Placement and flower range
+
+A house at $v$ needs a mature flower within five Manhattan steps. Its eligible flower tiles form the set
+
+```math
+B_5(v) = \left\lbrace u \in V \mid 0 < \lVert u-v\rVert_1 \le 5 \right\rbrace .
+```
+
+For every plot tile $v\in V$, the first two constraints reserve the house tile. The third requires a flower in range, and the fourth requires a reachable pickup position.
+
+```math
 \begin{aligned}
-h_v+f_v &\le 1, \qquad h_v+w_v \le 1,\\
+h_v+f_v &\le 1,\\
+h_v+w_v &\le 1,\\
 h_v &\le \sum_{u\in B_5(v)} f_u,\\
 h_v &\le \sum_{u\in C(v)} w_u .
 \end{aligned}
-$$
+```
 
 One flower can supply many houses. A flower budget $K$ adds $\sum_{v\in V} f_v\le K$. By default, the farmer can walk on soil-grown flowers. For impassable flowers, also impose $f_v+w_v\le 1$ on each plot tile. [Bee House mechanics](https://stardewvalleywiki.com/Bee_House)
 
-**Walking access.** Give each tile in $V\cup S$ an integer depth $d_v\in\{0,\ldots,\lvert V\rvert\}$. Set $w_s=1$ and $d_s=0$ for every start $s\in S$. Every selected walking tile $v\in V\setminus S$ must have a selected side neighbor at a smaller depth.
+### Walking access
 
-$$
-w_v=1 \;\Longrightarrow\;
-\bigvee_{u\in N_4(v)} \bigl(w_u=1 \;\land\; d_u<d_v\bigr).
-$$
+Give each tile in $V\cup S$ an integer depth $d_v\in\lbrace 0,\ldots,\lvert V\rvert\rbrace$. Set $w_s=1$ and $d_s=0$ for every start $s\in S$. Every selected walking tile $v\in V\setminus S$ must have a selected side neighbor at a smaller depth.
+
+```math
+w_v = 1 \implies \bigvee_{u\in N_4(v)} \left(w_u = 1 \land d_u < d_v\right).
+```
 
 Following smaller depths must eventually reach a start tile. This rules out counting a house whose only pickup position is in a sealed pocket. On an open 8×8 with two walkable flowers, the model gives **51 houses**. The protected four-rose build adds irrigation and requires every reachable standing tile to stay out of picking range of every rose. [CP-SAT implementation](apiary.py) · [Optimal 8×8 layouts](examples/open-field.md#how-the-grid-size-changes-the-answer) · [Protected-flower model](examples/pressure-nozzle/README.md#how-the-upper-bound-works)
 
