@@ -5,7 +5,7 @@ from beach_farm import BeachFarm, read_grid, read_order, replace
 from island_route import check_walk, read_walk
 
 
-ROOT = Path(__file__).resolve().parent / 'examples' / 'beach-farm'
+ROOT = Path(__file__).resolve().parents[1] / 'examples' / 'beach-farm'
 
 
 class BeachFarmTest(unittest.TestCase):

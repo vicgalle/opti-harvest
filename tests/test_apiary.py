@@ -54,7 +54,7 @@ def brute_force(plot):
 
 class ApiaryTests(unittest.TestCase):
     def test_published_layouts(self):
-        path = Path(__file__).parent / 'examples' / 'layouts.json'
+        path = Path(__file__).resolve().parents[1] / 'examples' / 'layouts.json'
         for result in json.loads(path.read_text()):
             with self.subTest(plot=result['plot']):
                 check_layout(Plot(**result['plot']), result['rows'])

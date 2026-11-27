@@ -4,7 +4,7 @@ from pathlib import Path
 from island import Island, read_grid
 from island_route import check_walk, read_walk
 
-EXAMPLE = Path(__file__).parent / 'examples' / 'ginger-island'
+EXAMPLE = Path(__file__).resolve().parents[1] / 'examples' / 'ginger-island'
 
 
 class CardinalPickupTests(unittest.TestCase):

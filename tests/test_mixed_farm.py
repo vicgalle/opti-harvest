@@ -5,7 +5,7 @@ from island import read_grid
 from island_route import check_walk, read_walk
 from mixed_farm import check_farm
 
-HERE = Path(__file__).parent / 'examples' / 'mixed-farm'
+HERE = Path(__file__).resolve().parents[1] / 'examples' / 'mixed-farm'
 
 
 class MixedFarmTests(unittest.TestCase):

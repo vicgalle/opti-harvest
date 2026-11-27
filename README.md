@@ -1,6 +1,6 @@
 # Opti-Harvest
 
-Opti-Harvest uses CP-SAT to design Stardew Valley apiaries where every bee house produces flower honey and every jar is reachable. You can copy a build tile by tile or run the solver on a plot of your own.
+Opti-Harvest uses CP-SAT to design Stardew Valley apiaries where every bee house produces flower honey and every jar is reachable. You can [copy a build](#build-gallery), [explore the optimization model](#optimization-model), or [run the solver](#run-the-solver) on a plot of your own.
 
 ## Build gallery
 
@@ -240,6 +240,37 @@ With **40 pots**, keep the million-gold harvest and a **25×20 field** watered b
 </tr>
 </table>
 
+## Optimization model
+
+The rectangular-plot solver maximizes the number of jars you can collect in one full harvest. Let $V$ be the plot tiles. On each tile $v$, binary variables $h_v$ and $f_v$ indicate a bee house and a mature flower. A third binary variable $w_v$ marks a tile the farmer uses to walk or stand. Each house yields one jar, so the objective is
+
+$$
+\max \sum_{v\in V} h_v .
+$$
+
+Let $S$ be the starting tiles. For an open plot, $S$ is the clear ring just outside the rectangle. For a single entrance, $S=\{g\}$ contains the reserved gate tile inside the plot, with $f_g=0$. Within $V\cup S$, let $N_4(v)$ contain the tiles sharing a side with $v$, and let $N_8(v)$ also include those touching a corner. The pickup positions for a house at $v$ are $C(v)=N_8(v)$ by default or $C(v)=N_4(v)$ for side-only collection.
+
+**Placement and flower range.** A house occupies its own tile, needs a flower within five Manhattan steps, and needs a pickup position. Write $B_5(v)=\{u\in V:0<\lVert u-v\rVert_1\le 5\}$ for its flower range. For every $v\in V$, impose
+
+$$
+\begin{aligned}
+h_v+f_v &\le 1, \qquad h_v+w_v \le 1,\\
+h_v &\le \sum_{u\in B_5(v)} f_u,\\
+h_v &\le \sum_{u\in C(v)} w_u .
+\end{aligned}
+$$
+
+One flower can supply many houses. A flower budget $K$ adds $\sum_{v\in V} f_v\le K$. By default, the farmer can walk on soil-grown flowers. For impassable flowers, also impose $f_v+w_v\le 1$ on each plot tile. [Bee House mechanics](https://stardewvalleywiki.com/Bee_House)
+
+**Walking access.** Give each tile in $V\cup S$ an integer depth $d_v\in\{0,\ldots,\lvert V\rvert\}$. Set $w_s=1$ and $d_s=0$ for every start $s\in S$. Every selected walking tile $v\in V\setminus S$ must have a selected side neighbor at a smaller depth.
+
+$$
+w_v=1 \;\Longrightarrow\;
+\bigvee_{u\in N_4(v)} \bigl(w_u=1 \;\land\; d_u<d_v\bigr).
+$$
+
+Following smaller depths must eventually reach a start tile. This rules out counting a house whose only pickup position is in a sealed pocket. On an open 8×8 with two walkable flowers, the model gives **51 houses**. The protected four-rose build adds irrigation and requires every reachable standing tile to stay out of picking range of every rose. [CP-SAT implementation](apiary.py) · [Optimal 8×8 layouts](examples/open-field.md#how-the-grid-size-changes-the-answer) · [Protected-flower model](examples/pressure-nozzle/README.md#how-the-upper-bound-works)
+
 ## Run the solver
 
 From the repository root, install the dependencies with Python 3.12. These commands solve an open 8×8 plot with a two-flower budget and replay the saved sprinkler builds.
@@ -253,8 +284,6 @@ python apiary.py 8 8 --max-flowers 2
 python examples/pressure-nozzle/verify.py
 ```
 
-A house needs a mature flower within five tiles by Manhattan distance. The farmer walks in four directions. Each guide says whether you can collect diagonally, where you enter, and whether the flowers are shielded against picking. A step is one tile of movement. Turning and collecting take additional game time. [Bee House mechanics](https://stardewvalleywiki.com/Bee_House)
-
-**Verified** means the saved layout passes an independent reachability and flower-range check. Saved walks are replayed step by step. **Proven maximum** or **shortest** means a matching bound exists under the stated rules. The farm maps are computational builds awaiting in-game playtests. [Solver options and verification](examples/open-field.md#run-the-solver) · [Open-rectangle proof](examples/open-field.md#why-there-is-an-exact-formula-for-open-rectangles)
+**Verified** means the saved layout passes an independent reachability and flower-range check. Saved walks are replayed one tile step at a time. Turning and collecting take additional game time. **Proven maximum** or **shortest** means a matching bound exists under the stated rules. The farm maps are computational builds awaiting in-game playtests. [Solver options and verification](examples/open-field.md#run-the-solver) · [Open-rectangle proof](examples/open-field.md#why-there-is-an-exact-formula-for-open-rectangles)
 
 Game artwork by ConcernedApe. The maps use Bryan Low’s sprites and renderer, Henrik Peinar’s Stardew Valley Planner, and the island survey by iaia_. The optimization work was inspired by Optifarm. [Bryan Low’s study](https://blow.sg/blog/stardew-beehouse-layout) · [Stardew Valley Planner](https://stardew.info/planner/) · [Terrain survey](https://www.reddit.com/r/StardewValley/comments/1k5rod1/) · [Optifarm](https://github.com/Serranegra/optifarm)
