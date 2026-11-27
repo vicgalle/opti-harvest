@@ -1,0 +1,685 @@
+[
+  {
+    "plot": {
+      "width": 3,
+      "height": 3,
+      "collection": 8,
+      "entrance": null,
+      "solid_flowers": false,
+      "center_only": false,
+      "max_flowers": null
+    },
+    "houses": 8,
+    "upper_bound": 8,
+    "flowers": 1,
+    "optimal": true,
+    "solver_status": "OPTIMAL",
+    "seconds": 0.019,
+    "rows": [
+      "HHH",
+      "HFH",
+      "HHH"
+    ]
+  },
+  {
+    "plot": {
+      "width": 5,
+      "height": 5,
+      "collection": 8,
+      "entrance": null,
+      "solid_flowers": false,
+      "center_only": false,
+      "max_flowers": null
+    },
+    "houses": 22,
+    "upper_bound": 22,
+    "flowers": 1,
+    "optimal": true,
+    "solver_status": "OPTIMAL",
+    "seconds": 0.009,
+    "rows": [
+      "HHHHH",
+      "HHHHH",
+      ".F.HH",
+      "HHHHH",
+      "HHHHH"
+    ]
+  },
+  {
+    "plot": {
+      "width": 5,
+      "height": 8,
+      "collection": 8,
+      "entrance": null,
+      "solid_flowers": false,
+      "center_only": false,
+      "max_flowers": null
+    },
+    "houses": 34,
+    "upper_bound": 34,
+    "flowers": 2,
+    "optimal": true,
+    "solver_status": "OPTIMAL",
+    "seconds": 0.008,
+    "rows": [
+      "HHHHH",
+      "HHHHH",
+      ".F.HH",
+      "HHHHH",
+      "HHHHH",
+      "HHF..",
+      "HHHHH",
+      "HHHHH"
+    ]
+  },
+  {
+    "plot": {
+      "width": 8,
+      "height": 8,
+      "collection": 8,
+      "entrance": null,
+      "solid_flowers": false,
+      "center_only": false,
+      "max_flowers": null
+    },
+    "houses": 52,
+    "upper_bound": 52,
+    "flowers": 3,
+    "optimal": true,
+    "solver_status": "OPTIMAL",
+    "seconds": 0.014,
+    "rows": [
+      "HHFHH.HH",
+      "HH.HH.HH",
+      "HH.HH.HH",
+      "HH.HH.HH",
+      "HHFHHFHH",
+      "HH.HH.HH",
+      "HHHHHHHH",
+      "HHHHHHHH"
+    ]
+  },
+  {
+    "plot": {
+      "width": 10,
+      "height": 10,
+      "collection": 8,
+      "entrance": null,
+      "solid_flowers": false,
+      "center_only": false,
+      "max_flowers": null
+    },
+    "houses": 78,
+    "upper_bound": 78,
+    "flowers": 5,
+    "optimal": true,
+    "solver_status": "OPTIMAL",
+    "seconds": 0.023,
+    "rows": [
+      "HH.HHFHHHH",
+      "HH.HH.HHHH",
+      "HH.HH.HH..",
+      "HH.HH.HHHH",
+      "HHFHH.HHHH",
+      "HH.HHFHHF.",
+      "HHFHH.HHHH",
+      "HH.HH.HHHH",
+      "HHHHHHHH..",
+      "HHHHHHHHHH"
+    ]
+  },
+  {
+    "plot": {
+      "width": 11,
+      "height": 11,
+      "collection": 8,
+      "entrance": null,
+      "solid_flowers": false,
+      "center_only": false,
+      "max_flowers": null
+    },
+    "houses": 94,
+    "upper_bound": 94,
+    "flowers": 5,
+    "optimal": true,
+    "solver_status": "OPTIMAL",
+    "seconds": 0.028,
+    "rows": [
+      "HH.HH.HH.HH",
+      "HHFHH.HH.HH",
+      "HH.HH.HH.HH",
+      "HH.HH.HHFHH",
+      "HH.HH.HH.HH",
+      "HH.HH.HH.HH",
+      "HH.HH.HH.HH",
+      "HHFHH.HHFHH",
+      "HH.HHFHH.HH",
+      "HHHHHHHHHHH",
+      "HHHHHHHHHHH"
+    ]
+  },
+  {
+    "plot": {
+      "width": 15,
+      "height": 14,
+      "collection": 8,
+      "entrance": null,
+      "solid_flowers": false,
+      "center_only": false,
+      "max_flowers": null
+    },
+    "houses": 158,
+    "upper_bound": 158,
+    "flowers": 9,
+    "optimal": true,
+    "solver_status": "OPTIMAL",
+    "seconds": 0.054,
+    "rows": [
+      "HHFHH.HH.HH.HHH",
+      "HHFHH.HH.HH.HHH",
+      "HH.HH.HH.HH.HH.",
+      "HHFHH.HH.HHFHHH",
+      "HH.HH.HH.HH.HHH",
+      "HH.HH.HH.HH.HHF",
+      "HH.HH.HH.HH.HHH",
+      "HH.HH.HH.HH.HHH",
+      "HH.HHFHH.HH.HH.",
+      "HH.HH.HH.HH.HHH",
+      "HHFHHFHH.HH.HHH",
+      "HH.HH.HH.HHFHH.",
+      "HHHHHHHHHHHHHHH",
+      "HHHHHHHHHHHHHHH"
+    ]
+  },
+  {
+    "plot": {
+      "width": 20,
+      "height": 20,
+      "collection": 8,
+      "entrance": null,
+      "solid_flowers": false,
+      "center_only": false,
+      "max_flowers": null
+    },
+    "houses": 292,
+    "upper_bound": 292,
+    "flowers": 14,
+    "optimal": true,
+    "solver_status": "OPTIMAL",
+    "seconds": 0.12,
+    "rows": [
+      "HHFHH.HHFHH.HH.HH.HH",
+      "HH.HH.HH.HH.HH.HH.HH",
+      "HH.HH.HH.HH.HH.HHFHH",
+      "HH.HH.HH.HH.HH.HH.HH",
+      "HH.HHFHH.HH.HH.HH.HH",
+      "HH.HH.HH.HH.HH.HH.HH",
+      "HH.HH.HH.HH.HHFHH.HH",
+      "HH.HH.HH.HH.HH.HH.HH",
+      "HHFHH.HH.HH.HH.HH.HH",
+      "HH.HH.HH.HH.HH.HH.HH",
+      "HH.HH.HH.HHFHH.HHFHH",
+      "HH.HH.HH.HH.HH.HH.HH",
+      "HH.HH.HH.HH.HH.HH.HH",
+      "HH.HH.HH.HH.HH.HH.HH",
+      "HH.HHFHH.HH.HH.HH.HH",
+      "HHFHH.HH.HH.HH.HH.HH",
+      "HHFHH.HH.HH.HHFHHFHH",
+      "HH.HH.HHFHH.HH.HH.HH",
+      "HHHHHHHHHHHHHHHHHHHH",
+      "HHHHHHHHHHHHHHHHHHHH"
+    ]
+  },
+  {
+    "plot": {
+      "width": 30,
+      "height": 30,
+      "collection": 8,
+      "entrance": null,
+      "solid_flowers": false,
+      "center_only": false,
+      "max_flowers": null
+    },
+    "houses": 638,
+    "upper_bound": 638,
+    "flowers": 30,
+    "optimal": true,
+    "solver_status": "OPTIMAL",
+    "seconds": 0.309,
+    "rows": [
+      "HHFHH.HH.HHFHH.HH.HH.HH.HHFHHH",
+      "HH.HH.HH.HH.HH.HH.HHFHH.HH.HHH",
+      "HH.HH.HH.HH.HH.HH.HH.HH.HH.HH.",
+      "HH.HH.HH.HH.HH.HH.HH.HH.HH.HHH",
+      "HH.HHFHH.HH.HH.HH.HH.HH.HH.HHH",
+      "HH.HH.HH.HH.HH.HH.HH.HH.HHFHH.",
+      "HH.HH.HH.HH.HHFHH.HH.HH.HH.HHH",
+      "HH.HH.HH.HH.HH.HHFHH.HH.HH.HHH",
+      "HHFHH.HH.HH.HH.HH.HH.HH.HH.HH.",
+      "HH.HH.HH.HHFHH.HH.HH.HH.HH.HHH",
+      "HH.HH.HH.HH.HH.HH.HH.HH.HH.HHH",
+      "HHFHH.HH.HH.HH.HH.HHFHH.HHFHH.",
+      "HH.HH.HH.HH.HH.HH.HH.HH.HH.HHH",
+      "HH.HHFHH.HHFHH.HH.HH.HH.HH.HHH",
+      "HH.HH.HH.HH.HH.HH.HH.HH.HH.HH.",
+      "HH.HH.HH.HH.HH.HH.HH.HH.HH.HHH",
+      "HH.HH.HH.HH.HH.HH.HH.HH.HHFHHH",
+      "HH.HH.HH.HH.HH.HH.HH.HH.HH.HH.",
+      "HHFHH.HH.HHFHH.HHFHH.HH.HH.HHH",
+      "HH.HH.HH.HH.HH.HH.HH.HH.HH.HHH",
+      "HHFHH.HH.HH.HH.HH.HH.HH.HHFHH.",
+      "HH.HH.HH.HH.HH.HH.HH.HH.HH.HHH",
+      "HH.HH.HH.HH.HH.HH.HH.HH.HH.HHH",
+      "HH.HH.HH.HH.HH.HH.HH.HH.HH.HH.",
+      "HH.HHFHH.HH.HH.HH.HH.HHFHH.HHH",
+      "HH.HH.HH.HH.HH.HH.HH.HH.HHFHHH",
+      "HHFHH.HHFHH.HHFHH.HHFHH.HH.HH.",
+      "HH.HH.HH.HH.HHFHH.HH.HH.HHFHHH",
+      "HHHHHHHHHHHHHHHHHHHHHHHHHHHHH.",
+      "HHHHHHHHHHHHHHHHHHHHHHHHHHHHHH"
+    ]
+  },
+  {
+    "plot": {
+      "width": 5,
+      "height": 5,
+      "collection": 8,
+      "entrance": [
+        0,
+        2
+      ],
+      "solid_flowers": false,
+      "center_only": false,
+      "max_flowers": null
+    },
+    "houses": 17,
+    "upper_bound": 17,
+    "flowers": 1,
+    "optimal": true,
+    "solver_status": "OPTIMAL",
+    "seconds": 0.034,
+    "rows": [
+      "HHHHH",
+      "H...H",
+      ".FH.H",
+      "H.H.H",
+      "HHHHH"
+    ]
+  },
+  {
+    "plot": {
+      "width": 8,
+      "height": 8,
+      "collection": 8,
+      "entrance": [
+        0,
+        4
+      ],
+      "solid_flowers": false,
+      "center_only": false,
+      "max_flowers": null
+    },
+    "houses": 43,
+    "upper_bound": 43,
+    "flowers": 3,
+    "optimal": true,
+    "solver_status": "OPTIMAL",
+    "seconds": 0.034,
+    "rows": [
+      "HHHHHHHH",
+      "HF.HH..H",
+      "H.HHHH.H",
+      "H.HHHHFH",
+      "..FHH..H",
+      "H.HHH.HH",
+      "H......H",
+      "HHHHHHHH"
+    ]
+  },
+  {
+    "plot": {
+      "width": 11,
+      "height": 11,
+      "collection": 8,
+      "entrance": [
+        0,
+        5
+      ],
+      "solid_flowers": false,
+      "center_only": false,
+      "max_flowers": null
+    },
+    "houses": 81,
+    "upper_bound": 81,
+    "flowers": 5,
+    "optimal": true,
+    "solver_status": "OPTIMAL",
+    "seconds": 0.186,
+    "rows": [
+      "HHHHHHHHHHH",
+      "H....HHF..H",
+      "H.HH.HH.HHH",
+      "HFHH.HH.HHH",
+      "H.HH.HH.F.H",
+      "..HH.HH.HHH",
+      "H.HH.HH.HHH",
+      "H.HH.HH.H.H",
+      "H.HH.HH.H.H",
+      "H.HHF.F...H",
+      "HHHHHHHHHHH"
+    ]
+  },
+  {
+    "plot": {
+      "width": 15,
+      "height": 14,
+      "collection": 8,
+      "entrance": [
+        0,
+        7
+      ],
+      "solid_flowers": false,
+      "center_only": false,
+      "max_flowers": null
+    },
+    "houses": 141,
+    "upper_bound": 141,
+    "flowers": 7,
+    "optimal": true,
+    "solver_status": "OPTIMAL",
+    "seconds": 0.076,
+    "rows": [
+      "HHHHHHHHHHHHHHH",
+      "HF...HH...FHH.H",
+      "H.HH.HH.HH.HH.H",
+      "H.HH.HH.HHFHH.H",
+      "H.HH.HH.HH.HH.H",
+      "H.HH.HHFHH.HH.H",
+      "H.HH.HH.HH.HH.H",
+      "..HH.HH.HH.HH.H",
+      "H.HH.HH.HH.HH.H",
+      "HFHH.HH.HH.HHFH",
+      "H.HH.HH.HH.HH.H",
+      "H.HH.HH.HH.HH.H",
+      "H.HH...FHH....H",
+      "HHHHHHHHHHHHHHH"
+    ]
+  },
+  {
+    "plot": {
+      "width": 30,
+      "height": 30,
+      "collection": 8,
+      "entrance": [
+        0,
+        15
+      ],
+      "solid_flowers": false,
+      "center_only": false,
+      "max_flowers": null
+    },
+    "houses": 601,
+    "upper_bound": 601,
+    "flowers": 27,
+    "optimal": true,
+    "solver_status": "OPTIMAL",
+    "seconds": 0.293,
+    "rows": [
+      "HHHHHHHHHHHHHHHHHHHHHHHHHHHHHH",
+      "H.F..HHF...HH.F..HH.F..HH....H",
+      "H.HH.HH.HH.HH.HH.HH.HH.HH.HH.H",
+      "H.HH.HH.HH.HH.HH.HH.HH.HH.HHFH",
+      "H.HH.HH.HH.HH.HH.HH.HH.HH.HH.H",
+      "H.HH.HHFHH.HH.HH.HH.HH.HHFHH.H",
+      "H.HH.HH.HH.HH.HH.HH.HH.HH.HH.H",
+      "H.HH.HH.HH.HH.HHFHH.HH.HH.HH.H",
+      "H.HH.HH.HH.HH.HH.HH.HH.HH.HH.H",
+      "HFHH.HH.HH.HH.HH.HHFHH.HH.HH.H",
+      "H.HH.HH.HH.HH.HH.HH.HH.HH.HH.H",
+      "H.HH.HH.HHFHH.HH.HH.HH.HH.HH.H",
+      "H.HH.HH.HH.HH.HH.HH.HH.HH.HHFH",
+      "H.HH.HH.HH.HH.HH.HH.HH.HH.HH.H",
+      "H.HH.HHFHH.HH.HH.HH.HH.HHFHH.H",
+      "..HH.HH.HH.HH.HH.HH.HH.HH.HH.H",
+      "H.HH.HH.HH.HH.HHFHH.HH.HH.HH.H",
+      "H.HH.HH.HH.HH.HH.HH.HH.HH.HH.H",
+      "HFHH.HH.HH.HH.HH.HH.HH.HHFHH.H",
+      "H.HH.HH.HH.HHFHH.HH.HH.HH.HH.H",
+      "H.HH.HH.HH.HH.HHFHH.HH.HH.HH.H",
+      "H.HH.HH.HH.HH.HH.HH.HH.HH.HH.H",
+      "H.HH.HH.HH.HH.HH.HH.HH.HH.HHFH",
+      "H.HH.HHFHH.HH.HH.HH.HH.HH.HH.H",
+      "H.HH.HH.HH.HH.HH.HHFHH.HH.HH.H",
+      "H.HH.HH.HH.HH.HH.HH.HH.HH.HH.H",
+      "H.HH.HH.HH.HH.HH.HH.HH.HH.HH.H",
+      "HFHHFHH.HH.HH.HH.HH.HH.HH.HH.H",
+      "H.HH....HH..F.HHF...HH...FHH.H",
+      "HHHHHHHHHHHHHHHHHHHHHHHHHHHHHH"
+    ]
+  },
+  {
+    "plot": {
+      "width": 8,
+      "height": 8,
+      "collection": 8,
+      "entrance": null,
+      "solid_flowers": false,
+      "center_only": false,
+      "max_flowers": 1
+    },
+    "houses": 42,
+    "upper_bound": 42,
+    "flowers": 1,
+    "optimal": true,
+    "solver_status": "OPTIMAL",
+    "seconds": 0.35,
+    "rows": [
+      ".HH.HH..",
+      "HHH.HHH.",
+      "HHH.HHH.",
+      ".HHF.HHH",
+      "HHH.HHHH",
+      "HHHHHHH.",
+      ".HHHHH..",
+      "..H.H..."
+    ]
+  },
+  {
+    "plot": {
+      "width": 8,
+      "height": 8,
+      "collection": 8,
+      "entrance": null,
+      "solid_flowers": false,
+      "center_only": false,
+      "max_flowers": 2
+    },
+    "houses": 51,
+    "upper_bound": 51,
+    "flowers": 2,
+    "optimal": true,
+    "solver_status": "OPTIMAL",
+    "seconds": 2.394,
+    "rows": [
+      "HHHHH.HH",
+      "HHHHH.HH",
+      "HH.HHHHH",
+      "..FHHHHH",
+      "HH.HH.F.",
+      "HHHHHHHH",
+      "HHHHHHHH",
+      ".H.HH.HH"
+    ]
+  },
+  {
+    "plot": {
+      "width": 8,
+      "height": 8,
+      "collection": 8,
+      "entrance": null,
+      "solid_flowers": false,
+      "center_only": false,
+      "max_flowers": 3
+    },
+    "houses": 52,
+    "upper_bound": 52,
+    "flowers": 3,
+    "optimal": true,
+    "solver_status": "OPTIMAL",
+    "seconds": 0.016,
+    "rows": [
+      "HHFHH.HH",
+      "HH.HH.HH",
+      "HH.HH.HH",
+      "HH.HH.HH",
+      "HHFHHFHH",
+      "HH.HH.HH",
+      "HHHHHHHH",
+      "HHHHHHHH"
+    ]
+  },
+  {
+    "plot": {
+      "width": 8,
+      "height": 8,
+      "collection": 8,
+      "entrance": null,
+      "solid_flowers": true,
+      "center_only": false,
+      "max_flowers": null
+    },
+    "houses": 50,
+    "upper_bound": 50,
+    "flowers": 2,
+    "optimal": true,
+    "solver_status": "OPTIMAL",
+    "seconds": 3.433,
+    "rows": [
+      "HHH.HHHH",
+      "HHH.HHH.",
+      ".HH..HHH",
+      "HHHHHHFH",
+      "HFHHHHHH",
+      "HHH..HH.",
+      ".HHH.HHH",
+      "HHHH.HHH"
+    ]
+  },
+  {
+    "plot": {
+      "width": 8,
+      "height": 8,
+      "collection": 4,
+      "entrance": null,
+      "solid_flowers": false,
+      "center_only": false,
+      "max_flowers": null
+    },
+    "houses": 50,
+    "upper_bound": 50,
+    "flowers": 3,
+    "optimal": true,
+    "solver_status": "OPTIMAL",
+    "seconds": 0.119,
+    "rows": [
+      "HHHHH.HH",
+      "HH.HH.HH",
+      "HH.HH.HH",
+      "HHFHHFHH",
+      "HH.HH.HH",
+      "HH.HH.HH",
+      "HH.HH.HH",
+      "HHFHHHHH"
+    ]
+  },
+  {
+    "plot": {
+      "width": 11,
+      "height": 11,
+      "collection": 8,
+      "entrance": null,
+      "solid_flowers": false,
+      "center_only": true,
+      "max_flowers": null
+    },
+    "houses": 49,
+    "upper_bound": 49,
+    "flowers": 1,
+    "optimal": true,
+    "solver_status": "OPTIMAL",
+    "seconds": 0.323,
+    "rows": [
+      ".....H.....",
+      ".....HH....",
+      "...HHHHH...",
+      "..HHHHHH...",
+      "..HHH.HH.H.",
+      "HHHH.FHHHHH",
+      ".HHHH..HHH.",
+      "..HHHH.HH..",
+      "...HHH.H...",
+      "....HH.....",
+      ".....H....."
+    ]
+  },
+  {
+    "plot": {
+      "width": 11,
+      "height": 11,
+      "collection": 8,
+      "entrance": null,
+      "solid_flowers": true,
+      "center_only": true,
+      "max_flowers": null
+    },
+    "houses": 48,
+    "upper_bound": 48,
+    "flowers": 1,
+    "optimal": true,
+    "solver_status": "OPTIMAL",
+    "seconds": 0.322,
+    "rows": [
+      ".....H.....",
+      "....HHH....",
+      "...HHHH....",
+      "..HH.H..H..",
+      ".HHHHHH.HH.",
+      "HHH.HFHHHHH",
+      ".HH.HHHHHH.",
+      ".....HH.H..",
+      "...HHHH....",
+      "....HHH....",
+      ".....H....."
+    ]
+  },
+  {
+    "plot": {
+      "width": 11,
+      "height": 11,
+      "collection": 4,
+      "entrance": null,
+      "solid_flowers": false,
+      "center_only": true,
+      "max_flowers": null
+    },
+    "houses": 44,
+    "upper_bound": 44,
+    "flowers": 1,
+    "optimal": true,
+    "solver_status": "OPTIMAL",
+    "seconds": 0.821,
+    "rows": [
+      ".....H.....",
+      "....HHH....",
+      "...HH......",
+      "...HHHHHH..",
+      ".HHH.HHHHH.",
+      "HHHH.F...HH",
+      ".....HHHHH.",
+      "..HHHHHHH..",
+      "...HH......",
+      "....HHH....",
+      ".....H....."
+    ]
+  }
+]
