@@ -1,12 +1,45 @@
 # Opti-Harvest
 
-Opti-Harvest uses CP-SAT to design Stardew Valley apiaries where every bee house produces flower honey and every jar is reachable. You can [copy a build](#build-gallery), [explore the optimization model](#optimization-model), or [run the solver](#run-the-solver) on a plot of your own.
+Opti-Harvest uses CP-SAT to design Stardew Valley farms and check that you can collect everything they produce. Copy a mushroom grove or flower-honey apiary from the [build gallery](#build-gallery), explore the [bee-house model](#optimization-model), or [run the solver](#run-the-solver) on a plot of your own.
 
 ## Build gallery
 
 Open an image for the full-size map. Follow its title for the tile plan, collection rules and build instructions.
 
-[Small plots](#small-plots) · [One-lap harvests](#one-lap-harvests) · [Growing in stages](#growing-in-stages) · [Ginger Island West](#ginger-island-west) · [Million-gold harvests](#million-gold-harvests)
+[Mushrooms and oak resin](#mushrooms-and-oak-resin) · [Small plots](#small-plots) · [One-lap harvests](#one-lap-harvests) · [Growing in stages](#growing-in-stages) · [Ginger Island West](#ginger-island-west) · [Million-gold harvests](#million-gold-harvests)
+
+### Mushrooms and oak resin
+
+TadaSuko described a square grove with eight Mushroom Logs in the middle and tappers on the outer trees. How small can that grove be if you want five mushrooms from every log and side access to every log and tapper? [TadaSuko’s eight-log grove](https://www.reddit.com/r/StardewHomeDesign/comments/1hnsb7q/comment/m4cc0ck/)
+
+<table>
+<tr>
+<td width="50%" valign="top">
+
+**[40 mushrooms from a 7×7 planting square with just 14 oaks](examples/mushroom-grove/README.md)**
+
+[![Eight mushroom logs arranged in the center of a 14-oak tapper grove](examples/mushroom-grove/build-map.png)](examples/mushroom-grove/build-map.png)
+
+The square fits at most **eight full-yield logs** when all supporting trees grow to maturity inside it. Even on a larger plot, eight such logs need at least **14 mature trees**.
+
+Leave a one-tile walking ring (9×9 total). When all eight logs are ready, a **40-step round trip** collects all 40 mushrooms. Make it **44 steps** to collect the oak resin too.
+
+[Tile plan](examples/mushroom-grove/14-trees.txt) · [Harvest route](examples/mushroom-grove/harvest-route.png) · [Proof of both limits](examples/mushroom-grove/README.md#why-eight-logs-is-the-limit)
+
+</td>
+<td width="50%" valign="top">
+
+**[One more oak takes the harvest from 15 to 25](examples/mushroom-grove/README.md#start-with-ten-trees)**
+
+[![Ten-tree starter grove and the same grove with the eleventh tree and two new logs outlined](examples/mushroom-grove/starter.png)](examples/mushroom-grove/starter.png)
+
+Start with ten oaks and three logs. Add one tree and two logs without moving anything. A **22-step round trip** collects all five mushroom stacks and reaches every tapper.
+
+[Ten-tree starter](examples/mushroom-grove/10-trees.txt) · [Eleven-tree expansion](examples/mushroom-grove/11-trees.txt)
+
+</td>
+</tr>
+</table>
 
 ### Small plots
 
@@ -242,7 +275,7 @@ With **40 pots**, keep the million-gold harvest and a **25×20 field** watered b
 
 ## Optimization model
 
-The rectangular-plot solver maximizes the number of jars you can collect in one full harvest. Let $V$ be the plot tiles. On each tile $v$, binary variables $h_v$ and $f_v$ indicate a bee house and a mature flower. A third binary variable $w_v$ marks a tile the farmer uses to walk or stand. Each house yields one jar, so the objective is
+The rectangular bee-house solver maximizes the number of jars you can collect in one full harvest. Let $V$ be the plot tiles. On each tile $v$, binary variables $h_v$ and $f_v$ indicate a bee house and a mature flower. A third binary variable $w_v$ marks a tile the farmer uses to walk or stand. Each house yields one jar, so the objective is
 
 ```math
 \max \sum_{v\in V} h_v .
@@ -285,7 +318,7 @@ Following smaller depths must eventually reach a start tile. This rules out coun
 
 ## Run the solver
 
-From the repository root, install the dependencies with Python 3.12. These commands solve an open 8×8 plot with a two-flower budget and replay the saved sprinkler builds.
+From the repository root, install the dependencies with Python 3.12. These commands solve an 8×8 apiary, verify the sprinkler builds, and find the shortest joint mushroom-and-resin walk on the saved grove.
 
 ```sh
 python3.12 -m venv .venv
@@ -294,8 +327,9 @@ python -m pip install -r requirements.txt
 
 python apiary.py 8 8 --max-flowers 2
 python examples/pressure-nozzle/verify.py
+python mushroom_grove.py --check examples/mushroom-grove/14-trees.txt --walk all
 ```
 
-**Verified** means the saved layout passes an independent reachability and flower-range check. Saved walks are replayed one tile step at a time. Turning and collecting take additional game time. **Proven maximum** or **shortest** means a matching bound exists under the stated rules. The farm maps are computational builds awaiting in-game playtests. [Solver options and verification](examples/open-field.md#run-the-solver) · [Open-rectangle proof](examples/open-field.md#why-there-is-an-exact-formula-for-open-rectangles)
+**Verified** means the saved layout passes independent checks for collection access and its production rules, such as flower range or nearby tree count. Saved walks are replayed one tile step at a time. Turning and collecting take additional game time. **Proven maximum** or **shortest** means a matching bound exists under the stated rules. The farm maps are computational builds awaiting in-game playtests. [Bee-house solver options](examples/open-field.md#run-the-solver) · [Open-rectangle proof](examples/open-field.md#why-there-is-an-exact-formula-for-open-rectangles) · [Mushroom grove proof](examples/mushroom-grove/README.md#why-eight-logs-is-the-limit)
 
 Game artwork by ConcernedApe. The maps use Bryan Low’s sprites and renderer, Henrik Peinar’s Stardew Valley Planner, and the island survey by iaia_. The optimization work was inspired by Optifarm. [Bryan Low’s study](https://blow.sg/blog/stardew-beehouse-layout) · [Stardew Valley Planner](https://stardew.info/planner/) · [Terrain survey](https://www.reddit.com/r/StardewValley/comments/1k5rod1/) · [Optifarm](https://github.com/Serranegra/optifarm)
