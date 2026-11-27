@@ -15,7 +15,7 @@ def read_grid(path):
 
 
 class Island:
-    def __init__(self, rows):
+    def __init__(self, rows, *, side_only=False):
         self.rows = rows
         self.base = {(x, y): c for y, row in enumerate(rows) for x, c in enumerate(row)}
         if set(self.base.values()) - set('.PSEWXI '):
@@ -30,8 +30,11 @@ class Island:
         self.sides = {p: self.floor.intersection(neighbors(p, STEPS)) for p in self.floor}
         self.around = {p: self.floor.intersection(neighbors(p, AROUND)) for p in self.floor}
         self.blooms = {p: self.beds.intersection(neighbors(p, BLOOM)) for p in self.build}
-        awkward = {p for p in self.floor if any(self.base.get(n) == 'I' for n in neighbors(p, AROUND))}
-        self.stands = {p: self.sides[p] | (self.around[p] - awkward) for p in self.build}
+        if side_only:
+            self.stands = {p: self.sides[p] for p in self.build}
+        else:
+            awkward = {p for p in self.floor if any(self.base.get(n) == 'I' for n in neighbors(p, AROUND))}
+            self.stands = {p: self.sides[p] | (self.around[p] - awkward) for p in self.build}
 
     def decode(self, rows):
         if list(map(len, rows)) != list(map(len, self.rows)):
@@ -181,9 +184,12 @@ def improve_patch(board, houses, flowers, patch, pot_limit, flower_limit, args):
             old_f | {p for p, v in rose.items() if solver.value(v)})
 
 
-def optimize(board, houses, flowers, args):
+def optimize(board, houses, flowers, args, *, pot_limit=None, flower_limit=None):
     rng = random.Random(args.seed)
-    pot_limit, flower_limit = board.pots(flowers), len(flowers)
+    if pot_limit is None:
+        pot_limit = board.pots(flowers)
+    if flower_limit is None:
+        flower_limit = len(flowers)
     def rank(h, f):
         return (-len(f & board.edge_beds) if args.guard_edges else 0,
                 len(h), -board.pots(f), -len(f))
@@ -215,6 +221,10 @@ def main():
     parser.add_argument('--seconds', type=float, default=0.5, help='solver time per neighborhood')
     parser.add_argument('--workers', type=int, default=4)
     parser.add_argument('--seed', type=int, default=17)
+    parser.add_argument('--max-pots', type=int, help='garden pot budget (defaults to the starting count)')
+    parser.add_argument('--max-flowers', type=int, help='flower budget (defaults to the starting count)')
+    parser.add_argument('--side-only', action='store_true',
+                        help='require a reachable pickup directly north, south, east or west of every house')
     parser.add_argument('--guard-edges', action='store_true',
                         help='require even flowers next to the map boundary to have eight mapped neighbors')
     args = parser.parse_args()
@@ -222,13 +232,17 @@ def main():
         parser.error('passes, seconds and workers must be positive')
     if args.output and Path(args.output).resolve() in {Path(args.terrain).resolve(), Path(args.layout).resolve()}:
         parser.error('use a separate output path')
-    board = Island(read_grid(args.terrain))
+    board = Island(read_grid(args.terrain), side_only=args.side_only)
     h, f = board.decode(read_grid(args.layout))
     board.verify(h, f)
+    if args.max_pots is not None and args.max_pots < board.pots(f):
+        parser.error('garden pot budget must accommodate the starting layout')
+    if args.max_flowers is not None and args.max_flowers < len(f):
+        parser.error('flower budget must accommodate the starting layout')
     print(f'Verified {len(h)} houses, {len(f)} roses, {board.pots(f)} pots', flush=True)
     if args.output:
         Path(args.output).write_text('\n'.join(board.grid(h, f)) + '\n')
-        h, f = optimize(board, h, f, args)
+        h, f = optimize(board, h, f, args, pot_limit=args.max_pots, flower_limit=args.max_flowers)
     if args.guard_edges and f & board.edge_beds:
         parser.exit(1, f'{len(f & board.edge_beds)} flowers still touch an uncharted tile\n')
 

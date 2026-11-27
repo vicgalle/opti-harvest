@@ -29,7 +29,9 @@ Bryan Low published a 571-house controller-friendly design and a 575-house versi
 
 The two extra jars in the [602-house grid](602-houses.txt) cost two extra pots. Five shielded roses in that variant rely on treating terrain beyond the map boundary as inaccessible, as in the published rules. The 600-house plan verifies every rose's shielding entirely within the survey. Its advantage over the 571-house design is 29 jars and 17 fewer pots, or **27,608g more per full Artisan harvest**.
 
-The published walk is 742 steps. Our routing procedure found a 746-step closed walk on the decoded original and 758 on the 600-house build, from the same entrance using the same pickup rule. These are feasible walks. Shorter tours may exist. The tile placements and walks have been checked computationally against the hand-transcribed map. In-game placement, NPC schedules and collection timing still need a playtest. The improvement is relative to the cited layout. Priority and global optimality remain open.
+Low’s published 742-step walk starts at the eastern bridge. From the same northern entrance, the shortest walks for his 571-house layout and the pictured 600-house layout take **744 and 756 steps**, respectively. The 758-step walk above is the one drawn on the route map. [Shortest walks and proofs](../short-harvest/README.md#why-changing-the-map-saves-walking)
+
+The tile placements and walks have been checked computationally against the hand-transcribed map. In-game placement, NPC schedules and collection timing still need a playtest. The improvement is relative to the cited layout. Priority and global optimality remain open.
 
 ## Reproducing the checks
 

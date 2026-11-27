@@ -102,8 +102,10 @@ def main():
     task.add_argument('--save', help='write a new walk as compass directions and tile counts')
     task.add_argument('--check', help='replay a previously saved walk')
     parser.add_argument('--seconds', type=float, default=8)
+    parser.add_argument('--side-only', action='store_true',
+                        help='allow collection only from directly north, south, east or west of a house')
     args = parser.parse_args()
-    board = Island(read_grid(args.terrain))
+    board = Island(read_grid(args.terrain), side_only=args.side_only)
     h, f = board.decode(read_grid(args.layout))
     board.verify(h, f)
     if args.check:
