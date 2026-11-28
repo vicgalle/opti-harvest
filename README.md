@@ -1,12 +1,70 @@
 # Opti-Harvest
 
-Opti-Harvest uses CP-SAT to design Stardew Valley farms and check that you can collect everything they produce. Copy a mushroom grove or flower-honey apiary from the [build gallery](#build-gallery), explore the [bee-house model](#optimization-model), or [run the solver](#run-the-solver) on a plot of your own.
+Opti-Harvest uses CP-SAT to design Stardew Valley farms and check that you can collect everything they produce. Copy a hops greenhouse, a keg shed, a mushroom grove or a flower-honey apiary from the [build gallery](#build-gallery), explore the [bee-house model](#optimization-model), or [run the solver](#run-the-solver) on a plot of your own.
 
 ## Build gallery
 
 Open an image for the full-size map. Follow its title for the tile plan, collection rules and build instructions.
 
-[Mushrooms and oak resin](#mushrooms-and-oak-resin) · [Small plots](#small-plots) · [One-lap harvests](#one-lap-harvests) · [Growing in stages](#growing-in-stages) · [Ginger Island West](#ginger-island-west) · [Million-gold harvests](#million-gold-harvests)
+[Greenhouse and sheds](#greenhouse-and-sheds) · [Mushrooms and oak resin](#mushrooms-and-oak-resin) · [Small plots](#small-plots) · [One-lap harvests](#one-lap-harvests) · [Growing in stages](#growing-in-stages) · [Ginger Island West](#ginger-island-west) · [Million-gold harvests](#million-gold-harvests) · [Four Corners co-op](#four-corners-honey-co-op)
+
+### Greenhouse and sheds
+
+On the wiki, the best known greenhouse trellis plan has stood at 87 harvestable crops since 2024, and the shed layouts everyone copies are called optimal without a proof. How many trellises, kegs and casks really fit when you must reach every one? [Greenhouse talk page](https://stardewvalleywiki.com/Talk:Greenhouse) · [Shed layouts](https://stardewvalleywiki.com/Shed)
+
+<table>
+<tr>
+<td width="50%" valign="top">
+
+**[93 hops in the greenhouse](examples/hops-greenhouse/README.md)**
+
+[![Greenhouse bed with 93 hop trellises and 27 ancient fruit plants in the lanes between them](examples/hops-greenhouse/build-map.png)](examples/hops-greenhouse/build-map.png)
+
+Every trellis has a standing tile beside it, and **93 is the proven limit** for picking by hand. The lanes carry 27 ancient fruit. A **108-step round trip** from the door picks every hop.
+
+[Tile plan](examples/hops-greenhouse/93-hops.txt) · [Daily walk](examples/hops-greenhouse/harvest-route.png) · [Proof](examples/hops-greenhouse/README.md#why-93-is-the-limit)
+
+</td>
+<td width="50%" valign="top">
+
+**[137 kegs is the limit for a Big Shed](examples/machine-rooms/README.md)**
+
+[![Big Shed floor plan with 137 kegs and a branching walkway from the door](examples/machine-rooms/big-shed.png)](examples/machine-rooms/big-shed.png)
+
+A counting argument proves that the popular **67 and 137** shed layouts cannot be beaten. CP-SAT settles the cellar at **125 casks**.
+
+[Six tile plans](examples/machine-rooms/README.md) · [Proof](examples/machine-rooms/README.md#why-a-big-shed-stops-at-137)
+
+</td>
+</tr>
+</table>
+
+<table>
+<tr>
+<td width="50%" valign="top">
+
+**[112 hops with an Iridium Scythe](examples/hops-greenhouse/README.md#with-an-iridium-scythe)**
+
+[![Greenhouse plan with 112 hop trellises around a single short lane, and the 70-step walk](examples/hops-greenhouse/scythe.png)](examples/hops-greenhouse/scythe.png)
+
+A swing reaches two tiles around you and three tiles up, so one short lane serves the whole bed and the daily lap drops to **70 steps**. Picking by hand, sprinklers cost one trellis (**92**) and avoiding corner pickups costs six (**87**).
+
+[Scythe plan](examples/hops-greenhouse/112-hops-scythe.txt) · [Sprinkler map](examples/hops-greenhouse/sprinklers.png) · [Side-only map](examples/hops-greenhouse/side-only.png)
+
+</td>
+<td width="50%" valign="top">
+
+**[131 kegs with no corner pickups](examples/machine-rooms/README.md)**
+
+[![Big Shed floor plan with 131 kegs in double rows along straight aisles](examples/machine-rooms/big-shed-side.png)](examples/machine-rooms/big-shed-side.png)
+
+Console and mobile players often cannot reach into corners. With every machine straight ahead of an open tile, the limits are **62, 131 and 119** for the Shed, Big Shed and cellar.
+
+[Big Shed plan](examples/machine-rooms/big-shed-side.txt) · [Cellar plan](examples/machine-rooms/cellar-side.txt)
+
+</td>
+</tr>
+</table>
 
 ### Mushrooms and oak resin
 
@@ -273,6 +331,16 @@ With **40 pots**, keep the million-gold harvest and a **25×20 field** watered b
 </tr>
 </table>
 
+### Four Corners honey co-op
+
+**[1,200 bee houses in four equal harvests](examples/four-corners/README.md)**
+
+[![Four Corners Farm with four numbered collection circuits, three cabins and irrigated flower and crop beds](examples/four-corners/build-map.png)](examples/four-corners/build-map.png)
+
+Each player gets **300 jars on a 174-step lap** and **75 irrigated crop tiles**. A solo farmer can stagger the four corners and collect one per day. The houses span **74×57 tiles**, a 15.5% larger footprint than the 40-pot Ginger Island build.
+
+[Tile-by-tile planting chart](examples/four-corners/planting-plan.png) · [Four harvest walks](examples/four-corners/walks.txt) · [Build and harvest calendar](examples/four-corners/README.md)
+
 ## Optimization model
 
 The rectangular bee-house solver maximizes the number of jars you can collect in one full harvest. Let $V$ be the plot tiles. On each tile $v$, binary variables $h_v$ and $f_v$ indicate a bee house and a mature flower. A third binary variable $w_v$ marks a tile the farmer uses to walk or stand. Each house yields one jar, so the objective is
@@ -318,7 +386,7 @@ Following smaller depths must eventually reach a start tile. This rules out coun
 
 ## Run the solver
 
-From the repository root, install the dependencies with Python 3.12. These commands solve an 8×8 apiary, verify the sprinkler builds, and find the shortest joint mushroom-and-resin walk on the saved grove.
+From the repository root, install the dependencies with Python 3.12. These commands solve an 8×8 apiary, verify the sprinkler builds, find the shortest joint mushroom-and-resin walk on the saved grove, find the shortest hops walk in the greenhouse, and check the 137-keg Big Shed.
 
 ```sh
 python3.12 -m venv .venv
@@ -328,8 +396,10 @@ python -m pip install -r requirements.txt
 python apiary.py 8 8 --max-flowers 2
 python examples/pressure-nozzle/verify.py
 python mushroom_grove.py --check examples/mushroom-grove/14-trees.txt --walk all
+python greenhouse.py --check examples/hops-greenhouse/93-hops.txt --walk daily
+python machine_room.py --check examples/machine-rooms/big-shed.txt
 ```
 
-**Verified** means the saved layout passes independent checks for collection access and its production rules, such as flower range or nearby tree count. Saved walks are replayed one tile step at a time. Turning and collecting take additional game time. **Proven maximum** or **shortest** means a matching bound exists under the stated rules. The farm maps are computational builds awaiting in-game playtests. [Bee-house solver options](examples/open-field.md#run-the-solver) · [Open-rectangle proof](examples/open-field.md#why-there-is-an-exact-formula-for-open-rectangles) · [Mushroom grove proof](examples/mushroom-grove/README.md#why-eight-logs-is-the-limit)
+**Verified** means the saved layout passes independent checks for collection access and its production rules, such as flower range or nearby tree count. Saved walks are replayed one tile step at a time. Turning and collecting take additional game time. **Proven maximum** or **shortest** means a matching bound exists under the stated rules. The farm maps are computational builds awaiting in-game playtests. [Bee-house solver options](examples/open-field.md#run-the-solver) · [Open-rectangle proof](examples/open-field.md#why-there-is-an-exact-formula-for-open-rectangles) · [Mushroom grove proof](examples/mushroom-grove/README.md#why-eight-logs-is-the-limit) · [Greenhouse proof](examples/hops-greenhouse/README.md#why-93-is-the-limit) · [Shed proof](examples/machine-rooms/README.md#why-a-big-shed-stops-at-137)
 
 Game artwork by ConcernedApe. The maps use Bryan Low’s sprites and renderer, Henrik Peinar’s Stardew Valley Planner, and the island survey by iaia_. The optimization work was inspired by Optifarm. [Bryan Low’s study](https://blow.sg/blog/stardew-beehouse-layout) · [Stardew Valley Planner](https://stardew.info/planner/) · [Terrain survey](https://www.reddit.com/r/StardewValley/comments/1k5rod1/) · [Optifarm](https://github.com/Serranegra/optifarm)
