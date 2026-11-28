@@ -6,7 +6,18 @@ Opti-Harvest uses CP-SAT to design Stardew Valley farms and check that you can c
 
 Open an image for the full-size map. Follow its title for the tile plan, collection rules and build instructions.
 
-[Greenhouse and sheds](#greenhouse-and-sheds) · [Mushrooms and oak resin](#mushrooms-and-oak-resin) · [Small plots](#small-plots) · [One-lap harvests](#one-lap-harvests) · [Growing in stages](#growing-in-stages) · [Ginger Island West](#ginger-island-west) · [Million-gold harvests](#million-gold-harvests) · [Four Corners co-op](#four-corners-honey-co-op) · [Boardwalk apiaries](#boardwalk-apiaries)
+[Summer market gardens](#summer-market-gardens) · [Greenhouse and sheds](#greenhouse-and-sheds) · [Mushrooms and oak resin](#mushrooms-and-oak-resin) · [Small plots](#small-plots) · [One-lap harvests](#one-lap-harvests) · [Growing in stages](#growing-in-stages) · [Ginger Island West](#ginger-island-west) · [Million-gold harvests](#million-gold-harvests) · [Four Corners co-op](#four-corners-honey-co-op) · [Boardwalk apiaries](#boardwalk-apiaries)
+
+### Summer market gardens
+
+What should you grow if you want coffee and a hot lunch for the mines, but still want the farm to pay? These two gardens combine peaches, dairy, coffee, peppers, hops and blueberries. CP-SAT chooses the crops and the loads for every morning of summer. [Build guide and customizable optimizer](examples/summer-market/README.md)
+
+| Four Corners farmhouse market | Six gardens on Everfarm |
+|---|---|
+| [![Four irrigated beds beside the farmhouse, a peach row and a single workshop](examples/summer-market/four-corners-map.png)](examples/summer-market/four-corners-map.png) | [![Six brick-lined gardens and two peach avenues below the Everfarm workshops](examples/summer-market/everfarm-map.png)](examples/summer-market/everfarm-map.png) |
+| Four Pepper Poppers and eight Triple Shot Espressos every morning from Summer 12, plus **100,292g** in summer sales. [Four Corners calendar](examples/summer-market/four-corners-calendar.csv) | Eight Pepper Poppers and sixteen Triple Shot Espressos on the same schedule, plus **731,980g** in summer sales. [Everfarm calendar](examples/summer-market/everfarm-calendar.csv) |
+
+[Printable tile plans for both farms and their workshops](examples/summer-market/build-sheets.pdf)
 
 ### Greenhouse and sheds
 
