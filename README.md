@@ -6,7 +6,7 @@ Opti-Harvest uses CP-SAT to design Stardew Valley farms and check that you can c
 
 Open an image for the full-size map. Follow its title for the tile plan, collection rules and build instructions.
 
-[Greenhouse and sheds](#greenhouse-and-sheds) · [Mushrooms and oak resin](#mushrooms-and-oak-resin) · [Small plots](#small-plots) · [One-lap harvests](#one-lap-harvests) · [Growing in stages](#growing-in-stages) · [Ginger Island West](#ginger-island-west) · [Million-gold harvests](#million-gold-harvests) · [Four Corners co-op](#four-corners-honey-co-op)
+[Greenhouse and sheds](#greenhouse-and-sheds) · [Mushrooms and oak resin](#mushrooms-and-oak-resin) · [Small plots](#small-plots) · [One-lap harvests](#one-lap-harvests) · [Growing in stages](#growing-in-stages) · [Ginger Island West](#ginger-island-west) · [Million-gold harvests](#million-gold-harvests) · [Four Corners co-op](#four-corners-honey-co-op) · [Boardwalk apiaries](#boardwalk-apiaries)
 
 ### Greenhouse and sheds
 
@@ -340,6 +340,15 @@ With **40 pots**, keep the million-gold harvest and a **25×20 field** watered b
 Each player gets **300 jars on a 174-step lap** and **75 irrigated crop tiles**. A solo farmer can stagger the four corners and collect one per day. The houses span **74×57 tiles**, a 15.5% larger footprint than the 40-pot Ginger Island build.
 
 [Tile-by-tile planting chart](examples/four-corners/planting-plan.png) · [Four harvest walks](examples/four-corners/walks.txt) · [Build and harvest calendar](examples/four-corners/README.md)
+
+### Boardwalk apiaries
+
+| [5,180 houses on Everfarm](examples/boardwalk-apiary/README.md) | [999 houses on the vanilla Beach Farm](examples/boardwalk-apiary/README.md#a-full-stack-on-the-vanilla-beach-farm) |
+|:---|:---|
+| [![Everfarm with 72 numbered boardwalks spanning its fields and islands](examples/boardwalk-apiary/everfarm-map.png)](examples/boardwalk-apiary/everfarm-map.png) | [![Fifteen Beach Farm boardwalks around the open sprinkler field](examples/boardwalk-apiary/beach-map.png)](examples/boardwalk-apiary/beach-map.png) |
+| On Draylon’s modded farm, the houses span **181×143 tiles**, **6.14 times** the Four Corners footprint. Five routes each fill a stack of 999 jars, with another 185 on the sixth. | Keep all **202 sprinkler-field tiles** free. Collect a full stack in **842 steps** from the yard and back, or stagger four walks of **222, 259, 259 and 259 jars**. |
+
+Both farms use the same two tile charts. Start with **37 houses on a 22-step lap**, or build the longer **111-house, 60-step lap**. Both walks attain the shortest possible length for side pickups on their house layouts. [Planting chart](examples/boardwalk-apiary/planting-chart.png) · [Build and harvest guide](examples/boardwalk-apiary/README.md)
 
 ## Optimization model
 

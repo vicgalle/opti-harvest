@@ -1,0 +1,16 @@
+# Boardwalk ID, NW corner x y, length, orientation (H or V)
+A01  30  22 29 H
+A02  22  30 29 H
+A03  18  38 29 H
+A04  49  38 29 H
+A05  58  46 10 H
+A06  53  55 10 V
+A07  61  54 10 V
+A08  69  47 10 V
+A09  69  58 10 H
+A10  47  66 29 H
+A11  78  74 10 H
+A12  83  63 10 V
+A13  52  30 29 H
+A14  83  31 10 V
+A15  61  21 10 H
